@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiskLens AI | Educational Momentum & Risk Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-particles"></div>
 
+  <header class="hero" id="top">
+    <div class="hero-content">
+      <p class="eyebrow">Futuristic Educational Dashboard</p>
+      <h1>RiskLens AI</h1>
+      <p class="subtitle">Educational Momentum &amp; Risk Insights — NOT financial advice</p>
+      <p class="disclaimer">This analysis is educational only and NOT financial advice, predictions, or investment recommendations.</p>
+      <div class="hero-actions">
+        <button id="startBtn" class="btn primary">Start Analysis</button>
+        <button id="demoBtn" class="btn ghost">See Demo Flow</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb orb-lg"></div>
+      <div class="orb orb-sm"></div>
+      <div class="radar">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="scanner"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="inputSection">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Input Center</p>
+          <h2>Provide data for educational review</h2>
+          <p class="small-text">Upload a screenshot for OCR or paste token descriptions, socials, or bonding-curve notes. Runs 100% in your browser.</p>
+        </div>
+        <p class="disclaimer inline">Educational only — NOT financial advice.</p>
+      </div>
+
+      <div class="input-grid">
+        <label class="card upload-card" for="imageInput">
+          <div class="icon-circle">📷</div>
+          <div>
+            <h3>Upload screenshot for OCR</h3>
+            <p>Processed locally in your browser. JPG/PNG supported.</p>
+            <p class="micro">If OCR fails, you can still analyze pasted text.</p>
+          </div>
+          <input type="file" id="imageInput" accept="image/*" hidden>
+        </label>
+
+        <div class="card text-card">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Text Input</p>
+              <h3>Paste description or hype text</h3>
+            </div>
+            <span class="badge">Local-only</span>
+          </div>
+          <textarea id="textInput" placeholder="Paste token description, social posts, bonding curve hints, or hype language to scan."></textarea>
+          <p class="micro">This analysis is educational only and NOT financial advice, predictions, or investment recommendations.</p>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button id="analyzeBtn" class="btn primary">Analyze</button>
+        <div class="loader" id="loader" aria-live="polite" hidden>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="loader-text" id="loaderText">Preparing...</span>
+        </div>
+        <p class="status" id="statusMessage"></p>
+      </div>
+    </section>
+
+    <section class="panel results" id="resultsPanel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Educational Risk Report</p>
+          <h2>Non-predictive insights based on your provided text</h2>
+          <p class="small-text">These outputs are contextual only and never promises of performance.</p>
+        </div>
+        <p class="disclaimer inline">Educational only — NOT financial advice.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="card result-card">
+          <h3>Extracted Text</h3>
+          <p id="extractedText" class="muted">Awaiting analysis...</p>
+        </div>
+        <div class="card result-card">
+          <h3>Sentiment &amp; Hype</h3>
+          <p><strong>Sentiment Score:</strong> <span id="sentimentScore">0</span>/100</p>
+          <p><strong>Hype Level:</strong> <span id="hypeLevel">-</span></p>
+          <p id="sentimentNotes" class="muted">Insights will appear here.</p>
+        </div>
+        <div class="card result-card">
+          <h3>Momentum Context (NOT predictive)</h3>
+          <p id="momentumContext" class="muted">Pending analysis.</p>
+        </div>
+        <div class="card result-card">
+          <h3>Bonding Curve Stage</h3>
+          <p><strong>Stage:</strong> <span id="bondingStage">-</span></p>
+          <p id="bondingExplanation" class="muted">Educational stage estimate.</p>
+        </div>
+        <div class="card result-card">
+          <h3>Risk Signals</h3>
+          <ul id="riskSignals" class="list"></ul>
+        </div>
+        <div class="card result-card">
+          <h3>Historical Pattern Similarity</h3>
+          <p id="patternSimilarity" class="muted">Ready to compare patterns.</p>
+        </div>
+      </div>
+
+      <div class="card full-width">
+        <h3>Suggested Research Questions</h3>
+        <ul id="researchQuestions" class="list">
+          <li>Is liquidity locked and transparently verifiable?</li>
+          <li>Is the team or deployer verifiable and accountable?</li>
+          <li>Is there real utility or is messaging purely hype?</li>
+          <li>How concentrated are the top wallets or holders?</li>
+          <li>Are contracts verified and are renounce/lock details clear?</li>
+        </ul>
+      </div>
+
+      <p class="disclaimer centered">This analysis is educational only and NOT financial advice, predictions, or investment recommendations.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>RiskLens AI — client-side educational tool. No predictions or investment recommendations.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
